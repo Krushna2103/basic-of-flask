@@ -45,14 +45,22 @@
             border-radius: 5px;
             overflow-x: auto;
         }
+        .exercise-complete {
+            background-color: #e6f7ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            border-left: 4px solid #1890ff;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Navigation -->
+        <!-- Navigation (updated to include Contact) -->
         <nav>
             <a href="/">Home</a>
             <a href="/about">About</a>
+            <a href="/contact">Contact</a>
         </nav>
 
         <h1>About This Project</h1>
@@ -78,7 +86,17 @@ def about():
             <li>Create reusable template layouts</li>
         </ul>
 
-        <p><a href="/">Back to Home</a></p>
+        <div class="exercise-complete">
+            <h3>✅ Exercises Completed</h3>
+            <p>All exercises from Part 2 are now complete:</p>
+            <ul>
+                <li><strong>Exercise 2.1:</strong> Modified templates with new content</li>
+                <li><strong>Exercise 2.2:</strong> Created a new Contact page</li>
+                <li><strong>Exercise 2.3:</strong> Added navigation between all pages</li>
+            </ul>
+        </div>
+
+        <p><a href="/">Back to Home</a> | <a href="/contact">Visit Contact Page</a></p>
     </div>
 </body>
 </html>

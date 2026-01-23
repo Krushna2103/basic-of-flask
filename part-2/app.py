@@ -22,6 +22,11 @@ def about():
     return render_template('about.html')  # Renders templates/about.html
 
 
+@app.route('/contact')  # NEW: Contact page route for Exercise 2.2
+def contact():
+    return render_template('contact.html')  # Renders templates/contact.html
+
+
 if __name__ == '__main__':
     app.run(debug=True)
 
@@ -34,7 +39,8 @@ if __name__ == '__main__':
 # ├── app.py              <- You are here
 # └── templates/          <- Flask looks here for HTML files
 #     ├── index.html      <- Home page template
-#     └── about.html      <- About page template
+#     ├── about.html      <- About page template
+#     └── contact.html    <- NEW: Contact page template (Exercise 2.2)
 #
 # =============================================================================
 
@@ -46,12 +52,12 @@ if __name__ == '__main__':
 #   - Edit index.html and add more content
 #   - Refresh browser to see changes
 #
-# Exercise 2.2: Create a new page
-#   - Create templates/contact.html
-#   - Add a new route @app.route('/contact')
-#   - Return render_template('contact.html')
+# Exercise 2.2: Create a new page ✓ COMPLETED
+#   - Create templates/contact.html ✓
+#   - Add a new route @app.route('/contact') ✓
+#   - Return render_template('contact.html') ✓
 #
-# Exercise 2.3: Add navigation
+# Exercise 2.3: Add navigation ✓ COMPLETED
 #   - Add <a href="/"> and <a href="/about"> links to both pages
 #   - Test clicking between pages
 #
