@@ -1,41 +1,60 @@
 """
 Part 1: Hello Flask - Your First Web Server
 ============================================
-How to Run:
-1. Make sure venv is activated
-2. Run: python app.py
-3. Open browser: http://localhost:5000
+Updated using comments & exercises
+
+Changes made:
+1. Personalized welcome message
+2. HTML response instead of plain text
+3. Added /about route
 """
 
-from flask import Flask  # Import Flask class from the flask package
+# ============================================================================
+# IMPORTS
+# ============================================================================
+from flask import Flask
 
-app = Flask(__name__)  # Create Flask app instance, __name__ tells Flask where to look for templates/static files
+
+# ============================================================================
+# APPLICATION SETUP
+# ============================================================================
+app = Flask(__name__)
+# __name__ helps Flask locate templates & static files
 
 
-@app.route('/')  # Decorator that maps URL '/' (home page) to this function
+# ============================================================================
+# ROUTES
+# ============================================================================
+
+@app.route('/')
 def home():
-    return "Hello Flask! Welcome to my first web server!"  # This text displays in the browser
+    """
+    Home page route
+    Returns HTML instead of plain text
+    """
+    return """
+    <h1>Hello Krushna!</h1>
+    <p>Welcome to my first Flask web server 🚀</p>
+    <p>This page is rendered using HTML.</p>
+    """
 
+
+@app.route('/about')
+def about():
+    """
+    About page route
+    """
+    return """
+    <h2>About This App</h2>
+    <p>This is a beginner Flask application.</p>
+    <p>Created by Krushna Dnyaneshwar Kharade.</p>
+    """
+
+
+# ============================================================================
+# APPLICATION ENTRY POINT
+# ============================================================================
 
 if __name__ == '__main__':
-    app.run(debug=True)  # debug=True enables auto-reload and detailed error messages
-
-
-# =============================================================================
-# EXERCISES - Try these after running the basic app:
-# =============================================================================
-#
-# Exercise 1.1: Change the return message
-#   - Modify the return statement to say "Hello [Your Name]!"
-#   - Save the file and refresh your browser (server auto-reloads!)
-#
-# Exercise 1.2: Return HTML instead of plain text
-#   - Change the return to: return "<h1>Hello Flask!</h1><p>This is HTML</p>"
-#   - Notice how the browser renders it as formatted HTML
-#
-# Exercise 1.3: Add a second route
-#   - Add another function with @app.route('/about')
-#   - Return something like "This is the about page"
-#   - Visit http://localhost:5000/about in your browser
-#
-# =============================================================================
+    # debug=True enables auto-reload & error details
+    app.run(debug=True)
