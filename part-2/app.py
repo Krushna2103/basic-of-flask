@@ -1,64 +1,61 @@
 """
 Part 2: Templates - Rendering HTML Files
-=========================================
+=======================================
+This file demonstrates how to render HTML templates using Flask.
+
 How to Run:
-1. Make sure venv is activated
+1. Activate virtual environment (if any)
 2. Run: python app.py
-3. Open browser: http://localhost:5000
+3. Open browser and visit:
+   http://localhost:5000
 """
 
-from flask import Flask, render_template  # render_template lets us serve HTML files
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 
+# Home Page Route
 @app.route('/')
 def home():
-    return render_template('index.html')  # Flask looks in 'templates/' folder for this file
+    # Renders templates/index.html
+    return render_template('index.html')
 
 
+# About Page Route
 @app.route('/about')
 def about():
-    return render_template('about.html')  # Renders templates/about.html
+    # Renders templates/about.html
+    return render_template('about.html')
 
 
-@app.route('/contact')  # NEW: Contact page route for Exercise 2.2
+# Contact Page Route (Exercise 2.2)
+@app.route('/contact')
 def contact():
-    return render_template('contact.html')  # Renders templates/contact.html
+    # Renders templates/contact.html
+    return render_template('contact.html')
 
 
+# Main entry point
 if __name__ == '__main__':
     app.run(debug=True)
 
 
-# =============================================================================
-# FOLDER STRUCTURE FOR THIS PART:
-# =============================================================================
-#
-# part-2/
-# ├── app.py              <- You are here
-# └── templates/          <- Flask looks here for HTML files
-#     ├── index.html      <- Home page template
-#     ├── about.html      <- About page template
-#     └── contact.html    <- NEW: Contact page template (Exercise 2.2)
-#
-# =============================================================================
+"""
+FOLDER STRUCTURE (Part 2)
+------------------------
+part-2/
+│
+├── app.py
+│
+└── templates/
+    ├── index.html
+    ├── about.html
+    └── contact.html
 
-# =============================================================================
-# EXERCISES:
-# =============================================================================
-#
-# Exercise 2.1: Modify the templates
-#   - Edit index.html and add more content
-#   - Refresh browser to see changes
-#
-# Exercise 2.2: Create a new page ✓ COMPLETED
-#   - Create templates/contact.html ✓
-#   - Add a new route @app.route('/contact') ✓
-#   - Return render_template('contact.html') ✓
-#
-# Exercise 2.3: Add navigation ✓ COMPLETED
-#   - Add <a href="/"> and <a href="/about"> links to both pages
-#   - Test clicking between pages
-#
-# =============================================================================
+EXERCISES STATUS
+----------------
+Exercise 2.1: Modify templates            ✅ Completed
+Exercise 2.2: Create Contact page         ✅ Completed
+Exercise 2.3: Add navigation links        ✅ Completed
+"""

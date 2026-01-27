@@ -1,102 +1,36 @@
+<!-- about.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Flask Templates</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #333;
-        }
-        nav {
-            margin-bottom: 20px;
-        }
-        nav a {
-            margin-right: 15px;
-            color: #007bff;
-            text-decoration: none;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        code {
-            background-color: #f4f4f4;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-family: monospace;
-        }
-        pre {
-            background-color: #2d2d2d;
-            color: #f8f8f2;
-            padding: 15px;
-            border-radius: 5px;
-            overflow-x: auto;
-        }
-        .exercise-complete {
-            background-color: #e6f7ff;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 20px;
-            border-left: 4px solid #1890ff;
-        }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Navigation (updated to include Contact) -->
-        <nav>
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/contact">Contact</a>
-        </nav>
 
-        <h1>About This Project</h1>
+    <!-- Navigation -->
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/about">About</a> |
+        <a href="/contact">Contact</a>
+    </nav>
 
-        <p>This is the <strong>About</strong> page, rendered from <code>templates/about.html</code></p>
+    <h1>About This Project</h1>
 
-        <h2>The render_template() Function</h2>
-        <p>Here's how we render this page in Python:</p>
+    <p>
+        This page explains how Flask renders HTML templates
+        using the <code>render_template()</code> function.
+    </p>
 
-        <pre>
+    <pre>
 @app.route('/about')
 def about():
     return render_template('about.html')
-        </pre>
+    </pre>
 
-        <h2>How Templates Work</h2>
-        <p>Flask uses a template engine called <strong>Jinja2</strong>. Right now we're just rendering static HTML, but in the next parts, we'll learn how to:</p>
+    <p>
+        Flask uses <strong>Jinja2</strong> as a template engine.
+        In future parts, we will pass data from Python to HTML.
+    </p>
 
-        <ul>
-            <li>Pass variables from Python to HTML</li>
-            <li>Use loops to display lists</li>
-            <li>Use conditionals to show/hide content</li>
-            <li>Create reusable template layouts</li>
-        </ul>
-
-        <div class="exercise-complete">
-            <h3>✅ Exercises Completed</h3>
-            <p>All exercises from Part 2 are now complete:</p>
-            <ul>
-                <li><strong>Exercise 2.1:</strong> Modified templates with new content</li>
-                <li><strong>Exercise 2.2:</strong> Created a new Contact page</li>
-                <li><strong>Exercise 2.3:</strong> Added navigation between all pages</li>
-            </ul>
-        </div>
-
-        <p><a href="/">Back to Home</a> | <a href="/contact">Visit Contact Page</a></p>
-    </div>
 </body>
 </html>
