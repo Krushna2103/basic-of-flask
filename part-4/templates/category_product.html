@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Category Product</title>
+</head>
+<body>
+    <h1>Category: {{ category }}</h1>
+
+    {% if product %}
+        <p>Product: {{ product.name }}</p>
+        <p>Price: ${{ product.price }}</p>
+    {% else %}
+        <p>Product not found</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product</title>
+</head>
+<body>
+    {% if product %}
+        <h1>{{ product.name }}</h1>
+        <p>Price: ${{ product.price }}</p>
+    {% else %}
+        <h1>Product Not Found</h1>
+        <p>No product with ID {{ product_id }}</p>
+    {% endif %}
+</body>
+</html>
