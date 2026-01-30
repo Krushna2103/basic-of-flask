@@ -1,49 +1,31 @@
 {% extends "base.html" %}
 
-{% block title %}All Tasks - To-Do List App{% endblock %}
+{% block title %}All Tasks{% endblock %}
 
 {% block content %}
-<h2>{% if filter_name %}{{ filter_name }}{% else %}All Tasks{% endif %}</h2>
-<p style="color: #666; margin: 10px 0 20px 0;">Total: {{ tasks|length }} task(s)</p>
+<h2>All Tasks</h2>
+<p>Total: {{ tasks|length }} task(s)</p>
 
-{% if tasks %}
-    <div style="display: grid; gap: 15px;">
-        {% for task in tasks %}
-            <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 5px; background: #f9f9f9;">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <div>
-                        <h3 style="color: #333; margin-bottom: 8px;">{{ task.title|upper }}</h3>
-                        <p style="color: #666; margin: 5px 0;">
-                            Status: 
-                            {% if task.status == 'Completed' %}
-                                <span style="color: green; font-weight: bold;">✓ {{ task.status }}</span>
-                            {% elif task.status == 'In Progress' %}
-                                <span style="color: orange; font-weight: bold;">⚙ {{ task.status }}</span>
-                            {% else %}
-                                <span style="color: red; font-weight: bold;">⊘ {{ task.status }}</span>
-                            {% endif %}
-                        </p>
-                        <p style="color: #666; margin: 5px 0;">
-                            Priority: 
-                            {% if task.priority == 'High' %}
-                                <span style="color: red; font-weight: bold;">🔴 {{ task.priority }}</span>
-                            {% elif task.priority == 'Medium' %}
-                                <span style="color: orange; font-weight: bold;">🟠 {{ task.priority }}</span>
-                            {% else %}
-                                <span style="color: green; font-weight: bold;">🟢 {{ task.priority }}</span>
-                            {% endif %}
-                        </p>
-                    </div>
-                    <a href="{{ url_for('task_detail', id=task.id) }}" class="btn">View Details</a>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-{% else %}
-    <p style="text-align: center; color: #999; margin: 50px 0;">No tasks found.</p>
-{% endif %}
+{% for task in tasks %}
+<div class="card">
+    <h3>{{ task.title|upper }}</h3>
 
-<div style="margin-top: 30px; text-align: center;">
-    <a href="{{ url_for('add') }}" class="btn">+ Add New Task</a>
+    <p>Status:
+        {% if task.status == 'Completed' %}
+            <span class="green">{{ task.status }}</span>
+        {% elif task.status == 'In Progress' %}
+            <span class="orange">{{ task.status }}</span>
+        {% else %}
+            <span class="red">{{ task.status }}</span>
+        {% endif %}
+    </p>
+
+    <p>Priority: {{ task.priority }}</p>
+
+    <a href="{{ url_for('task_detail', id=task.id) }}" class="btn">View</a>
 </div>
+{% else %}
+<p>No tasks found.</p>
+{% endfor %}
+
 {% endblock %}

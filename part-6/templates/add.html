@@ -1,38 +1,25 @@
 {% extends "base.html" %}
 
-{% block title %}Add Task - To-Do List App{% endblock %}
+{% block title %}Add Task{% endblock %}
 
 {% block content %}
-<h2>Add a New Task</h2>
-<p style="color: #666; margin-bottom: 20px;">Fill in the details below to create a new task.</p>
+<h2>Add New Task</h2>
 
-<form method="POST" style="max-width: 500px; background: #f9f9f9; padding: 20px; border-radius: 5px;">
-    <div style="margin-bottom: 15px;">
-        <label for="title" style="display: block; margin-bottom: 5px; font-weight: bold; color: #333;">Task Title *</label>
-        <input type="text" id="title" name="title" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 1em;">
-    </div>
-    
-    <div style="margin-bottom: 15px;">
-        <label for="status" style="display: block; margin-bottom: 5px; font-weight: bold; color: #333;">Status</label>
-        <select id="status" name="status" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 1em;">
-            <option value="Pending">Pending</option>
-            <option value="In Progress">In Progress</option>
-            <option value="Completed">Completed</option>
-        </select>
-    </div>
-    
-    <div style="margin-bottom: 20px;">
-        <label for="priority" style="display: block; margin-bottom: 5px; font-weight: bold; color: #333;">Priority</label>
-        <select id="priority" name="priority" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 1em;">
-            <option value="Low">Low</option>
-            <option value="Medium" selected>Medium</option>
-            <option value="High">High</option>
-        </select>
-    </div>
-    
-    <div style="display: flex; gap: 10px;">
-        <button type="submit" class="btn">✓ Add Task</button>
-        <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancel</a>
-    </div>
+<form method="post">
+    <input type="text" name="title" placeholder="Task title" required>
+
+    <select name="status">
+        <option>Pending</option>
+        <option>In Progress</option>
+        <option>Completed</option>
+    </select>
+
+    <select name="priority">
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
+    </select>
+
+    <button type="submit" class="btn">Add Task</button>
 </form>
 {% endblock %}

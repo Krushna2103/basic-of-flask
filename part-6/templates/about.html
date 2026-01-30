@@ -1,54 +1,30 @@
 {% extends "base.html" %}
 
-{% block title %}About - To-Do List App{% endblock %}
+{% block title %}About{% endblock %}
 
 {% block content %}
-<div style="max-width: 600px; margin: 0 auto;">
-    <h2 style="color: #333; margin-bottom: 20px;">About This App</h2>
-    
-    <div style="background: #f9f9f9; padding: 20px; border-radius: 5px; border-left: 4px solid #667eea;">
-        <h3 style="color: #667eea; margin-bottom: 15px;">✓ Personal To-Do List Application</h3>
-        
-        <p style="color: #666; line-height: 1.6; margin-bottom: 15px;">
-            This is a simple yet functional to-do list application built with <strong>Flask</strong>, a lightweight Python web framework. 
-            It demonstrates the core concepts of web development including routing, templating, and form handling.
-        </p>
-        
-        <h4 style="color: #333; margin-top: 20px; margin-bottom: 10px;">Features:</h4>
-        <ul style="color: #666; margin-left: 20px; line-height: 1.8;">
-            <li>✓ Create and manage tasks</li>
-            <li>✓ Set task status (Pending, In Progress, Completed)</li>
-            <li>✓ Assign priority levels (Low, Medium, High)</li>
-            <li>✓ View individual task details</li>
-            <li>✓ Filter tasks by priority</li>
-            <li>✓ Clean and responsive user interface</li>
-        </ul>
-        
-        <h4 style="color: #333; margin-top: 20px; margin-bottom: 10px;">Technologies Used:</h4>
-        <ul style="color: #666; margin-left: 20px; line-height: 1.8;">
-            <li>🐍 Python 3.x</li>
-            <li>🌶️ Flask Web Framework</li>
-            <li>🎨 HTML5 & CSS3</li>
-            <li>🔗 Jinja2 Templating</li>
-        </ul>
-        
-        <h4 style="color: #333; margin-top: 20px; margin-bottom: 10px;">Jinja2 Features Demonstrated:</h4>
-        <ul style="color: #666; margin-left: 20px; line-height: 1.8;">
-            <li>{{ "{{ variable }}" }} - Variables</li>
-            <li>{% raw %}{% for ... in ... %}{% endraw %} - Loops</li>
-            <li>{% raw %}{% if ... %}{% endraw %} - Conditionals</li>
-            <li>{{ "| upper" }} - Filters</li>
-            <li>{% raw %}{% extends %}{% endraw %} - Template Inheritance</li>
-        </ul>
-        
-        <p style="color: #999; margin-top: 30px; font-size: 0.9em;">
-            <strong>Note:</strong> Data is stored in-memory. Refreshing the server will reset all tasks. 
-            For persistent storage, consider integrating a database like SQLite or PostgreSQL.
-        </p>
-    </div>
-    
-    <div style="margin-top: 30px; text-align: center;">
-        <a href="{{ url_for('index') }}" class="btn">← Back to Home</a>
-    </div>
-</div>
+<h2>About This App</h2>
+
+<p>
+This is a simple <strong>Flask To-Do List application</strong> created as part of an exercise.
+It demonstrates:
+</p>
+
+<ul>
+    <li>Routing</li>
+    <li>Dynamic URLs</li>
+    <li>Jinja2 templates</li>
+    <li>Loops and conditionals</li>
+    <li>Form handling</li>
+</ul>
+
+{% raw %}
+<p>Example Jinja syntax:</p>
+<pre>
+{% for task in tasks %}
+    {{ task.title }}
+{% endfor %}
+</pre>
+{% endraw %}
+
 {% endblock %}
