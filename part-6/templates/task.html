@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}{{ task.title }} - To-Do List App{% endblock %}
+
+{% block content %}
+<div style="max-width: 600px;">
+    <a href="{{ url_for('index') }}" style="color: #667eea; text-decoration: none; margin-bottom: 20px; display: inline-block;">← Back to Tasks</a>
+    
+    <div style="border: 2px solid #667eea; padding: 30px; border-radius: 10px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
+        <h2 style="color: #333; margin-bottom: 20px;">{{ task.title|upper }}</h2>
+        
+        <div style="background: white; padding: 20px; border-radius: 5px; margin-bottom: 20px;">
+            <div style="margin-bottom: 15px;">
+                <label style="font-weight: bold; color: #666;">Task ID:</label>
+                <p style="color: #333; margin: 5px 0 0 0;">#{{ task.id }}</p>
+            </div>
+            
+            <div style="margin-bottom: 15px;">
+                <label style="font-weight: bold; color: #666;">Title:</label>
+                <p style="color: #333; margin: 5px 0 0 0;">{{ task.title }}</p>
+            </div>
+            
+            <div style="margin-bottom: 15px;">
+                <label style="font-weight: bold; color: #666;">Status:</label>
+                <p style="margin: 5px 0 0 0;">
+                    {% if task.status == 'Completed' %}
+                        <span style="color: white; background: green; padding: 5px 10px; border-radius: 5px; font-weight: bold;">✓ {{ task.status }}</span>
+                    {% elif task.status == 'In Progress' %}
+                        <span style="color: white; background: orange; padding: 5px 10px; border-radius: 5px; font-weight: bold;">⚙ {{ task.status }}</span>
+                    {% else %}
+                        <span style="color: white; background: red; padding: 5px 10px; border-radius: 5px; font-weight: bold;">⊘ {{ task.status }}</span>
+                    {% endif %}
+                </p>
+            </div>
+            
+            <div style="margin-bottom: 15px;">
+                <label style="font-weight: bold; color: #666;">Priority:</label>
+                <p style="margin: 5px 0 0 0;">
+                    {% if task.priority == 'High' %}
+                        <span style="color: white; background: red; padding: 5px 10px; border-radius: 5px; font-weight: bold;">🔴 {{ task.priority }}</span>
+                    {% elif task.priority == 'Medium' %}
+                        <span style="color: white; background: orange; padding: 5px 10px; border-radius: 5px; font-weight: bold;">🟠 {{ task.priority }}</span>
+                    {% else %}
+                        <span style="color: white; background: green; padding: 5px 10px; border-radius: 5px; font-weight: bold;">🟢 {{ task.priority }}</span>
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+        
+        <div style="text-align: center;">
+            <a href="{{ url_for('index') }}" class="btn">← Back to All Tasks</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
